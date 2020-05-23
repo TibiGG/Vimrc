@@ -148,6 +148,20 @@ augroup END
 
 " Operator Pending Mappings ---------------- {{{
 
+" Single Quotes Search and Edit ------------------ {{{
+onoremap in' :<c-u>normal! f'vi'<cr>
+onoremap il' :<c-u>normal! F'vi'<cr>
+onoremap an' :<c-u>normal! f'va'<cr>
+onoremap al' :<c-u>normal! F'va'<cr>
+" }}}
+
+" Double Quotes Search and Edit ------------------ {{{
+onoremap in" :<c-u>normal! f"vi"<cr>
+onoremap il" :<c-u>normal! F"vi"<cr>
+onoremap an" :<c-u>normal! f"va"<cr>
+onoremap al" :<c-u>normal! F"va"<cr>
+" }}}
+
 " Braces Search and Edit ------------------ {{{
 onoremap in( :<c-u>normal! f(vi(<cr>
 onoremap il( :<c-u>normal! F)vi(<cr>
