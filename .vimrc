@@ -62,6 +62,14 @@ nnoremap <Down>  :resize -2<CR>
 nnoremap <Left>  :vertical resize +2<CR>
 nnoremap <Right> :vertical resize -2<CR>
 
+" Add forgotten semicolumn and return back to cursor position -------------- {{{
+nnoremap <leader>; mqA;<esc>`q
+" }}}
+
+" Open Previous Buffer in vsplit window --------- {{{
+nnoremap <leader>pb :execute "leftabove vsplit " . bufname("#")<cr>
+" }}}
+
 " Code Comment Mappings --------------------- {{{
 augroup code_comments
   autocmd!
@@ -70,7 +78,6 @@ augroup code_comments
   autocmd FileType c,javascript,java vnoremap <buffer> <localleader>c <esc>`<i/*<cr><esc>`>a<cr>*/<esc>l
 augroup END
 " }}}
-
 
 " }}}
 
