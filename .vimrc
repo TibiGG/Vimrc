@@ -6,6 +6,7 @@ set softtabstop=0
 set shiftwidth=2
 set smarttab
 set autoindent
+set hlsearch incsearch
 " }}}
 
 " Leader Settings ---------------------- {{{
@@ -61,6 +62,20 @@ nnoremap <Up>    :resize +2<CR>
 nnoremap <Down>  :resize -2<CR>
 nnoremap <Left>  :vertical resize +2<CR>
 nnoremap <Right> :vertical resize -2<CR>
+
+" Match Trailing Whitespaces with Error Group ------{{{
+nnoremap <leader>w :match Error /\v\s+$/<cr>
+nnoremap <leader>W :match none<cr>
+" }}}
+
+" Stop Highlighting items from the last search ---------{{{
+nnoremap <leader>H :nohlsearch<cr>
+" }}}
+
+" Automatically add \v whenever beginning a search ------{{{
+nnoremap / /\v
+nnoremap ? ?\v
+" }}}
 
 " Add forgotten semicolumn and return back to cursor position -------------- {{{
 nnoremap <leader>; mqA;<esc>`q
