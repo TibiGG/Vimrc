@@ -11,6 +11,9 @@ call vundle#begin()
 " let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
 
+" adding my own plugin for processing 'potion' files
+Plugin 'TibiGG/potion'
+
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -71,9 +74,35 @@ noremap _ ddkP
 nnoremap H 0
 nnoremap L $
 
-" Uppercase a whole word in insert/normal mode
-inoremap <c-u> <esc>viWUEa
+" Uppercase a whole word in insert/normal mode -------------{{{
+" "Uppercase word" mapping.
+"
+" This mapping allows you to press <c-u> in insert mode to convert the
+" current word to uppercase.  It's handy when you're writing names of
+" constants and don't want to use Capslock.
+"
+" To use it you type the name of the constant in lowercase.  While
+" your cursor is at the end of the word, press <c-u> to uppercase it,
+" and then continue happily on your way:
+"
+"                            cursor
+"                            v
+"     max_connections_allowed|
+"     <c-u>
+"     MAX_CONNECTIONS_ALLOWED|
+"                            ^
+"                            cursor
+"
+" It works by exiting out of insert mode, recording the current cursor
+" location in the z mark, using gUiw to uppercase inside the current
+" word, moving back to the z mark, and entering insert mode again.
+"
+" Note that this will overwrite the contents of the z mark.  I never
+" use it, but if you do you'll probably want to use another mark.
+inoremap <C-u> <esc>mzgUiw`za
+" inoremap <c-u> <esc>viWUEa
 nnoremap <c-u> viWUE
+" }}}
 
 " Edit my Vimrc function
 nnoremap <leader>ev :vsplit $MYVIMRC<cr>
@@ -90,11 +119,12 @@ nnoremap <leader>' viw<esc>a'<esc>bi'<esc>lel
 vnoremap <leader>" <esc>`<i"<esc>`>a"<esc>l
 vnoremap <leader>' <esc>`<i'<esc>`>a'<esc>l
 
-" Remapping arrow keys to useful commands
+" Remapping arrow keys to useful commands -----------------{{{
 nnoremap <Up>    :resize +2<CR>
 nnoremap <Down>  :resize -2<CR>
 nnoremap <Left>  :vertical resize +2<CR>
 nnoremap <Right> :vertical resize -2<CR>
+" }}}
 
 " Match Trailing Whitespaces with Error Group ------{{{
 nnoremap <leader>w :match Error /\v\s+$/<cr>
@@ -115,7 +145,7 @@ nnoremap <leader>; mqA;<esc>`q
 " }}}
 
 " Open Previous Buffer in vsplit window --------- {{{
-nnoremap <leader>pb :execute "leftabove vsplit " . bufname("#")<cr>
+nnoremap <leader>pb :execute "rightbelow vsplit " . bufname("#")<cr>
 " }}}
 
 " Code Comment Mappings --------------------- {{{
@@ -238,4 +268,12 @@ onoremap il@ :<c-u>execute "normal! ?[a-zA-Z0-9\\._\\-\\+\\%]\\+@[a-zA-Z0-9\\.\\
 onoremap al@ :<c-u>execute "normal! ?[a-zA-Z0-9\\._\\-\\+\\%]\\+@[a-zA-Z0-9\\.\\-_]\\+\\.[a-z]\\+\r:nohlsearch\rvE"<cr>
 " }}}
 
+" }}}
+
+" Extra Plugin Settings -------------{{{
+"
+" Potion Settings -------------------{{{
+let g:potion_command = "/home/tibigg/Documents/GitRepos/potion/bin/potion"
+" }}}
+"
 " }}}
