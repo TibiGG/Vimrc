@@ -17,19 +17,24 @@ Then, there will be two things with which you want to work with:
 
 Now, there are two ways to set them up for yourself:
 
-1.  Just copy paste them within your home directory
+1.1.  Just copy paste them within your home directory
 
    ```bash
    cp -r .vim ~/.vim
    cp .vimrc ~/.vimrc
    ```
 
-2. Sym-link the files into your home, so that you can keep your version up to date with mine
+1.2. Sym-link the files into your home, so that you can keep your version up to date with mine
 
    ```bash
    ln -s <path-to-repo>/.vim ~/.vim
    ln -s <path-to-repo>/.vimrc ~/.vimrc
    ```
+
+2. Afterwards, Vundle needs to be set up within the .vim directory using this command
+  ```bash
+  git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+  ```
 
 What I would recommend is for you to use the first version to get better with vim. Then, when ready, make your own repo, add these files into it & use the symlink method to keep your version up to date on your device.
 
