@@ -11,8 +11,11 @@ call vundle#begin()
 " let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
 
+" added nerdtree
+Plugin 'preservim/nerdtree'
+
 " adding my own plugin for processing 'potion' files
-Plugin 'TibiGG/potion'
+" Plugin 'TibiGG/potion'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -274,6 +277,13 @@ onoremap al@ :<c-u>execute "normal! ?[a-zA-Z0-9\\._\\-\\+\\%]\\+@[a-zA-Z0-9\\.\\
 "
 " Potion Settings -------------------{{{
 let g:potion_command = "/home/tibigg/Documents/GitRepos/potion/bin/potion"
+" }}}
+"
+" NERDTree Settings -------------------{{{
+nnoremap <leader>n :NERDTreeFocus<CR>
+nnoremap <C-n> :NERDTree<CR>
+nnoremap <C-t> :NERDTreeToggle<CR>
+nnoremap <C-f> :NERDTreeFind<CR>
 " }}}
 "
 " }}}
