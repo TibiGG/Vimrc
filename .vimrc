@@ -44,6 +44,7 @@ set smarttab
 set autoindent
 set hlsearch incsearch
 nohlsearch
+syntax on     " syntax highlighting on
 " }}}
 
 " Leader Settings ---------------------- {{{
@@ -224,12 +225,13 @@ augroup code_snippets_common
 augroup END
 " }}}
 
+" DISABLED
 " Training Abbreviations for Code Snippets ------------------- {{{
-augroup train_group
-  autocmd!
-  autocmd FileType python,c,javascript,java :iabbrev <buffer> return NOPENOPENOPENOPE
-  autocmd FileType javascript               :iabbrev <buffer> function NOPENOPENOPENOPE
-augroup END
+" augroup train_group
+"   autocmd!
+"   autocmd FileType python,c,javascript,java :iabbrev <buffer> return NOPENOPENOPENOPE
+"   autocmd FileType javascript               :iabbrev <buffer> function NOPENOPENOPENOPE
+" augroup END
 " }}}
 
 " }}}
@@ -280,9 +282,12 @@ let g:potion_command = "/home/tibigg/Documents/GitRepos/potion/bin/potion"
 " }}}
 "
 " NERDTree Settings -------------------{{{
+" Notation fix
+let g:NERDTreeNodeDelimiter = "\u00a0"
+" Mappings for easy access
 nnoremap <leader>n :NERDTreeFocus<CR>
 nnoremap <C-n> :NERDTree<CR>
-nnoremap <C-t> :NERDTreeToggle<CR>
+nnoremap <leader>tn :NERDTreeToggle<CR>
 nnoremap <C-f> :NERDTreeFind<CR>
 " }}}
 "
