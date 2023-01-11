@@ -29,6 +29,7 @@ Now, there are two ways to set them up for yourself:
    ```bash
    ln -s <path-to-repo>/.vim ~/.vim
    ln -s <path-to-repo>/.vimrc ~/.vimrc
+   ln -s <path-to-repo>/.ideavimrc ~/.ideavimrc
    ```
 
 2. Afterwards, Vundle needs to be set up within the .vim directory using this command
